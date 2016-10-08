@@ -1,0 +1,238 @@
+@import "base"; 
+@mixin userem($size){
+	$lists:414px,412px,384px,375px,360px,320px;
+	@each $i in $lists{
+		@media screen and (max-width: #{$i}) {
+			html{
+				font-size: 100px * ($i / $size);
+			}			
+		}
+	}
+
+
+}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+@include userem(1125px)
+body{
+   width: 100%;
+   overflow-x:hidden;
+   font-size: 0.6rem;	
+}
+.header{
+	z-index: 2;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: #37363B;
+	height: 1.3rem;
+	width: 100%;
+	margin: 0 auto;
+	color: #fff;
+	h1{ 
+		font-size: 0.6rem;	
+		text-align: center;
+		letter-spacing: 1px;
+		font-weight: 100;
+		line-height: 1.3rem;
+	}
+}
+.content{
+	&::after{
+		content:'';
+		display: block;
+		width: 100%;
+		height: 0;
+		opacity: 0;
+		clear: both;
+	};
+	z-index: 1;
+	position: absolute;
+	top: 1.3rem;
+	bottom: 1.45rem;
+	width: 100%;
+	height: 16.64rem;
+	overflow-y: auto;
+	.con-inner{	 
+      width: 100%;
+      height: 100%;
+      background: #EFEFF4; 
+      .chat-list{
+        padding-top: 0.45rem;
+      	width: 100%;
+      	height: auto;
+      	background: #EFEFF4;
+      	box-sizing:border-box;
+        position: relative;
+        .user{
+			padding:0rem 0.29rem;
+			width: 100%;    		
+			height: 2.65rem;
+			border-bottom: 0.01rem solid #EDEDED;
+			box-sizing:border-box;
+			background:white;
+			img{
+				display: block;
+				@include cube(2.65rem);
+				background: white;
+			}
+			.xinxi{
+				width: 7.4rem;
+				height: 1.36rem;
+				@include shangxia;
+				right: 1rem;
+				color: black;
+				background: url(../img/wo_08.png) center right no-repeat;
+				background-size: 0.54rem 0.5rem;
+				
+				h3{
+					font-size: 0.5rem;
+					font-weight: 500;
+				}
+				span{
+					display: block;
+					font-size: 0.40rem;
+					font-size: 400;
+					line-height: 0.90rem;
+				 }
+			    }
+				.zhankai{
+		            display: block;
+		            width: 0.5rem;
+		            height: 0.5rem;
+		            background: url(../img/faxian_13.png) center center no-repeat;
+		            background-size: 0.5rem 0.5rem;
+		            @include shangxia;
+		            right: 0.44rem;
+           }			
+        }
+      	.item{
+            border-left:0.29rem solid white;
+      		width: 100%;    		
+      		height: 1.32rem;
+      		border-bottom: 0.01rem solid #EDEDED;
+      		box-sizing:border-box;
+            background:white;
+      		img{
+      		 display: block;
+      		 float: left;
+             box-sizing: border-box;
+             @include cube(1.32rem);
+             background: white;
+             border: 0;
+      		}
+      		.title{
+            display: block;
+            @include shangxia;
+            font-size: 0.5rem;
+            font-weight: 400;
+            line-height: 1.32rem;
+            text-align: center;
+            left: 1.50rem;
+            word-spacing: -2px;
+      		}
+          .gonggao{
+            @include shangxia;
+            right: 1rem;
+            display: block;
+            width: 2.16rem;
+            height: 0.4rem;
+            font-size: 0.40rem;
+            line-height: 0.40rem;
+            letter-spacing: 0px;
+            color: #A0A0A0;
+            letter-spacing: 0.02rem;
+
+          }
+          .zhankai{
+            display: block;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: url(../img/faxian_13.png) center center no-repeat;
+            background-size: 0.5rem 0.5rem;
+            @include shangxia;
+            right: 0.44rem;
+          }
+      	}
+      	li:nth-child(2),li:nth-child(6),li:nth-child(7){
+      		margin-bottom: 0.65rem;
+      	}
+      }
+
+      	
+      }
+
+}
+
+
+.nav-list{
+	z-index: 2;
+	width: 100%;
+	height: 1.45rem;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background: #F8F8F8;
+	.nav-footer{
+		width: 100%;
+		padding: 0.05rem;
+		box-sizing:border-box;
+		background: #F8F8F8;
+		li{
+			width: 25%;
+			height: 1.35rem;
+			float: left;
+			border-radius:0.20rem; 
+			a{
+				display: block;
+				margin: 0.18rem auto 0.05rem;
+				width: 0.80rem;
+				height: 0.73rem;
+			}
+			span{
+				display: block;
+				font-size: 0.3rem;
+				line-height: 0.3rem;
+				text-align: center;
+				color: #A0A0A0;
+				margin: 0 auto;
+			}
+			&.wo{
+				background:#DAEBF8;
+				a{
+                 background:url(../img/wo_25.png) center center no-repeat;
+                 background-size: 0.80rem 0.73rem; 
+				}
+				span{
+                   color: #09BB07;
+				}
+			}
+			&.weixin{
+				a{
+                 background:url(../img/weixin_10.png) center center no-repeat;
+                 background-size: 0.80rem 0.73rem; 
+				}
+			}
+			&.tongxun{
+				a{
+                 background:url(../img/5.png) center center no-repeat;
+                 background-size: 0.80rem 0.73rem; 
+				}
+			}
+			&.faxian{
+				a{
+                 background:url(../img/6.png) center center no-repeat;
+                 background-size: 0.80rem 0.73rem; 
+				}
+			}
+
+
+		}
+
+	}
+}
+
+

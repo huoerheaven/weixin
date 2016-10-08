@@ -1,0 +1,224 @@
+@import "base"; 
+@mixin userem($size){
+	$lists:414px,412px,384px,375px,360px,320px;
+	@each $i in $lists{
+		@media screen and (max-width: #{$i}) {
+			html{
+				font-size: 100px * ($i / $size);
+			}			
+		}
+	}
+
+
+}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+@include userem(1125px)
+body{
+   width: 100%;
+   overflow-x:hidden;
+   font-size: 0.6rem;	
+}
+.header{
+	z-index: 2;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: #37363B;
+	height: 1.3rem;
+	width: 100%;
+	margin: 0 auto;
+	color: #fff;
+	h1{ 
+		font-size: 0.6rem;	
+		text-align: center;
+		letter-spacing: 1px;
+		font-weight: 100;
+		line-height: 1.3rem;
+	}
+	.plus{
+		width: 0.78rem;
+		height: 0.6rem;		
+		@include shangxia;
+		right: 0.49rem;
+		background: url(../img/tonxun_03.png) center center no-repeat;
+		background-size: 0.78rem 0.6rem;
+	}
+}
+.content{
+	z-index: 1;
+	position: absolute;
+	left: 0;
+	top: 1.3rem;
+	width: 100%;
+	overflow-y: auto;
+	.con-inner{	  
+      width: 100%;
+      height: 16.64rem;     
+       .searchhead{
+       	  width: 100%;
+       	   height: 1.32rem;
+       	   padding: 0.20rem 0.29rem;      
+           background:#EFEFF4;
+           box-sizing:border-box;
+           position: relative;
+           input{
+                outline: none;
+                width: 100%;
+                height: 100%;
+                background:#fff;
+                border: 0px;
+                border-radius:0.1rem;
+                margin-bottom: 1rem;
+           }
+           .search{
+           	background: url(../img/2.png) 3px -1px no-repeat;
+		    background-size: 0.5rem 0.5rem;
+           	width:1.5rem;
+           	height: 0.5rem;
+           	font-size: 0.4rem;
+           	font-weight: 300;
+           	color: #8F8F94;
+           	font-style:normal;
+           	line-height: 0.5rem;
+           	@extend %center;
+           	span{
+           	  line-height: 0.4rem;
+           	  text-align: center;
+           	  display: inline-block;
+           	  float: right;
+           	}
+           }
+           .maike{
+           	@include shangxia;
+           	right: 0.47rem;
+           	@include cube(0.5rem);
+           	background: url(../img/3.png) top center no-repeat;
+		    background-size: 0.5rem 0.5rem;
+           } 
+         }
+      .chat-list{
+      	width: 100%;
+      	height: auto;
+      	background: white;
+      	padding: 0 0.29rem;
+      	box-sizing:border-box;
+        position: relative;
+        .zimu{
+          position: sticky;
+          left: 0;
+          top: 0;
+          background: #F0F0F6;
+          width: 100%;
+          height: 0.67rem;
+          padding: 0 0.29rem;
+          box-sizing:border-box;
+          line-height: 0.67rem;
+          span{
+            display:block;
+            font-size: 0.35rem;
+            color: #8E8E93;
+          }
+        }
+      	dd{
+      		width: 100%;
+      		padding: 0.27rem 0;      		
+      		height: 2.02rem;
+      		border-bottom: 0.01rem solid #EDEDED;
+      		box-sizing:border-box;
+      		img{
+      		 display: block;
+      		 float: left;
+             @include cube(1.48rem);
+             border: 0;
+      		}
+      		.title{
+      			display: inline-block;
+      			width: 8.2rem;
+      			height: 1.2rem;
+      			padding: 0.14rem 0.3rem;
+            position: relative;
+            line-height: 1.2rem;
+            color: black;
+            letter-spacing: 2px;
+      		}
+      	}
+      }
+
+      	
+      }
+
+}
+
+
+.nav-list{
+	z-index: 2;
+	width: 100%;
+	height: 1.45rem;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background: #F8F8F8;
+	.nav-footer{
+		width: 100%;
+		padding: 0.05rem;
+		box-sizing:border-box;
+		background: #F8F8F8;
+		li{
+			width: 25%;
+			height: 1.35rem;
+			float: left;
+			border-radius:0.20rem; 
+			a{
+				display: block;
+				margin: 0.18rem auto 0.05rem;
+				width: 0.80rem;
+				height: 0.73rem;
+			}
+			span{
+				display: block;
+				font-size: 0.3rem;
+				line-height: 0.3rem;
+				text-align: center;
+				color: #A0A0A0;
+				margin: 0 auto;
+			}
+			&.tongxun{
+				background:#DAEBF8;
+				a{
+                 background:url(../img/tonxun_27.png) center center no-repeat;
+                 background-size: 0.80rem 0.73rem; 
+				}
+				span{
+                   color: #09BB07;
+				}
+			}
+			&.weixin{
+				a{
+                 background:url(../img/weixin_10.png) center center no-repeat;
+                 background-size: 0.80rem 0.73rem; 
+				}
+			}
+			&.faxian{
+				a{
+                 background:url(../img/6.png) center center no-repeat;
+                 background-size: 0.80rem 0.73rem; 
+				}
+			}
+			&.wo{
+				a{
+                 background:url(../img/7.png) center center no-repeat;
+                 background-size: 0.80rem 0.73rem; 
+				}
+			}
+
+
+		}
+
+	}
+}
+
+
